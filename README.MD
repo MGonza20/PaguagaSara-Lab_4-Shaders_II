@@ -12,6 +12,9 @@
 - **Tecla d: Orbitar modelo hacia la derecha**
 
 ### Movimiento vertical con límites:
-- **Tecla a: Mover modelo hacia arriba**
+- **Tecla w: Mover modelo hacia arriba**
 - **Tecla s: Mover modelo hacia abajo**
 
+### Shaders:
+- **Tecla 1: Gourad**
+- **Tecla 2: Toon shader**
