@@ -79,7 +79,7 @@ void main()
 '''
 
 
-flaglike_vertex_shader ='''
+wave_vertex_shader ='''
 #version 450 core
 
 layout (location = 0) in vec3 position;
@@ -105,6 +105,6 @@ void main()
     pos = (modelMatrix * vec4(position, 1.0)).xyz;
 
     gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
-    gl_Position.y += sin((gl_Position.y * waveFrequency.y) + time) * sin((gl_Position.x * waveFrequency.y) + time) * waveElevation; 
+    gl_Position.x += sin((gl_Position.y * waveFrequency.y) + time) * sin((gl_Position.x * waveFrequency.y) + time) * waveElevation; 
 }
 '''
