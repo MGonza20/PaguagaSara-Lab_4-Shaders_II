@@ -174,6 +174,9 @@ class Renderer(object):
         self.angle = 0
         self.camDistance = 5
 
+        self.waveElevation = 0.2
+        self.waveFrequency = glm.vec2(4.0, 1.5)
+
         self.value = 0
 
         # ViewMatrix
@@ -241,6 +244,10 @@ class Renderer(object):
             glUniform1f(glGetUniformLocation(self.active_shader, "camDistance"), self.camDistance) 
 
             glUniform3fv(glGetUniformLocation(self.active_shader, "pointLight"), 1, glm.value_ptr(self.pointLight))
+
+            glUniform1f(glGetUniformLocation(self.active_shader, "waveElevation"), self.waveElevation) 
+
+            glUniform2fv(glGetUniformLocation(self.active_shader, "waveFrequency"), 1, glm.value_ptr(self.waveFrequency))
 
         for obj in self.scene:
             if self.active_shader is not None:

@@ -53,6 +53,8 @@ while isRunning:
                 rend.setShaders(vertex_shader, fragment_shader)
             elif event.key == pygame.K_2:
                 rend.setShaders(vertex_shader, toon_fragment_shader)
+            elif event.key == pygame.K_3:
+                rend.setShaders(flaglike_vertex_shader, fragment_shader)
 
     if True:
         if keys[K_q]:

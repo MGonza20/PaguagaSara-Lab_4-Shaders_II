@@ -77,3 +77,34 @@ void main()
     fragColor = texture(tex, UVs) * newIntensity;
 }
 '''
+
+
+flaglike_vertex_shader ='''
+#version 450 core
+
+layout (location = 0) in vec3 position;
+layout (location = 1) in vec2 texcoords;
+layout (location = 2) in vec3 normals;
+
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
+
+uniform float waveElevation;
+uniform vec2 waveFrequency;
+uniform float time;
+
+out vec2 UVs;
+out vec3 norms;
+out vec3 pos;
+
+void main()
+{
+    UVs = texcoords;
+    norms = normals;
+    pos = (modelMatrix * vec4(position, 1.0)).xyz;
+
+    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
+    gl_Position.y += sin((gl_Position.y * waveFrequency.y) + time) * sin((gl_Position.x * waveFrequency.y) + time) * waveElevation; 
+}
+'''
