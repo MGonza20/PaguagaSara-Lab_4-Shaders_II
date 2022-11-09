@@ -135,3 +135,25 @@ void main()
     gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4((position + normals*sin(explode)), 1.0);
 }
 '''
+
+explode_fragment_shader ='''
+#version 450 core
+
+out vec4 fragColor;
+
+in vec2 UVs;
+in vec3 norms;
+in vec3 pos;
+
+uniform vec3 pointLight;
+uniform sampler2D tex;
+
+uniform float explode;
+
+void main()
+{
+    float intensity = dot(norms, normalize(pointLight - pos));
+    fragColor = texture(tex, UVs) * intensity;
+    fragColor.z *= explode*10; 
+}
+'''

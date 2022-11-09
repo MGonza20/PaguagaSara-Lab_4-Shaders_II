@@ -56,7 +56,7 @@ while isRunning:
             elif event.key == pygame.K_3:
                 rend.setShaders(wave_vertex_shader, fragment_shader)
             elif event.key == pygame.K_4:
-                rend.setShaders(explode_vertex_shader, fragment_shader)
+                rend.setShaders(explode_vertex_shader, explode_fragment_shader)
          
 
     if True:
