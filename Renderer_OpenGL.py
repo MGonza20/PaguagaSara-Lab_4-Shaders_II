@@ -57,6 +57,8 @@ while isRunning:
                 rend.setShaders(wave_vertex_shader, fragment_shader)
             elif event.key == pygame.K_4:
                 rend.setShaders(explode_vertex_shader, explode_fragment_shader)
+            elif event.key == pygame.K_5:
+                rend.setShaders(explode_vertex_shader, lightPower_fragment_shader)
          
 
     if True:
@@ -75,6 +77,13 @@ while isRunning:
             if rend.explode >= 0.0:
                 rend.explode -= 1.0 * deltaTime
                 rend.explode_color -= 1.0 * deltaTime
+
+        if keys[K_f]:
+            if rend.force <= 7.6:
+                rend.force += 1.0 * deltaTime
+        elif keys[K_c]:
+            if rend.force >= 0.0:
+                rend.force -= 1.0 * deltaTime
     
         if keys[K_a]:
             rend.angle -= 30 * deltaTime

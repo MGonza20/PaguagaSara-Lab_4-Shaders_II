@@ -104,7 +104,7 @@ void main()
     pos = (modelMatrix * vec4(position, 1.0)).xyz;
 
     gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
-    gl_Position.y += sin((gl_Position.y * waveFrequency.y) + time) * sin((gl_Position.z * waveFrequency.y) + time) * waveElevation; 
+    gl_Position.y += sin((gl_Position.z * waveFrequency.y)*1.5 + time) * sin((gl_Position.y * waveFrequency.y)/3 + time) * waveElevation; 
 }
 '''
 
@@ -155,5 +155,38 @@ void main()
     float intensity = dot(norms, normalize(pointLight - pos));
     fragColor = texture(tex, UVs) * intensity;
     fragColor.z += explodeColor; 
+}
+'''
+
+
+lightPower_fragment_shader ='''
+#version 450 core
+
+out vec4 fragColor;
+
+in vec2 UVs;
+in vec3 norms;
+in vec3 pos;
+
+uniform float force;
+
+uniform vec3 pointLight;
+uniform sampler2D tex;
+
+void main()
+{   
+    vec2 uvss = UVs;
+    float forcee = force;
+    float xx = (floor(uvss.x*10)/10)*1.2 + forcee/2;
+    float xy = (floor(uvss.y*10)/10)*1.2 + forcee/2;
+    float y = 2.0;
+    float mod1 = (xx-y)*floor(xx/y);
+    float mod2 = (xy-y)*floor(xy/y);
+
+    float intensity = dot(norms, normalize(pointLight - pos));
+    intensity *= mod1;
+    intensity *= mod2;
+
+    fragColor = texture(tex, uvss) * intensity;
 }
 '''
