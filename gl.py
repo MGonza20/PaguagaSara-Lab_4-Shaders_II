@@ -184,6 +184,8 @@ class Renderer(object):
         self.camRotation = glm.vec3(0,0,0)
         self.viewMatrix = self.getViewMatrix()
 
+        self.explode = 0.0
+
         # Projection Matrix
         self.projectionMatrix = glm.perspective(glm.radians(60),        # FOV
                                                 self.width/self.height, # Aspect Ratio
@@ -248,6 +250,8 @@ class Renderer(object):
             glUniform1f(glGetUniformLocation(self.active_shader, "waveElevation"), self.waveElevation) 
 
             glUniform2fv(glGetUniformLocation(self.active_shader, "waveFrequency"), 1, glm.value_ptr(self.waveFrequency))
+
+            glUniform1f(glGetUniformLocation(self.active_shader, "explode"), self.explode) 
 
         for obj in self.scene:
             if self.active_shader is not None:

@@ -55,6 +55,9 @@ while isRunning:
                 rend.setShaders(vertex_shader, toon_fragment_shader)
             elif event.key == pygame.K_3:
                 rend.setShaders(wave_vertex_shader, fragment_shader)
+            elif event.key == pygame.K_4:
+                rend.setShaders(explode_vertex_shader, fragment_shader)
+         
 
     if True:
         if keys[K_q]:
@@ -63,6 +66,15 @@ while isRunning:
         elif keys[K_e]:
             if rend.camDistance < 7:
                 rend.camDistance += 2 * deltaTime
+        
+        if keys[K_p]:
+            if rend.explode <= 0.35:
+                rend.explode += 1.0 * deltaTime
+        elif keys[K_o]:
+            if rend.explode >= 0.0:
+                rend.explode -= 1.0 * deltaTime
+
+        print(rend.explode)
     
         if keys[K_a]:
             rend.angle -= 30 * deltaTime
