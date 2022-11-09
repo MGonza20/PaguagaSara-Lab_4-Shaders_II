@@ -70,11 +70,11 @@ while isRunning:
         if keys[K_p]:
             if rend.explode <= 0.35:
                 rend.explode += 1.0 * deltaTime
+                rend.explode_color += 1.0 * deltaTime
         elif keys[K_o]:
             if rend.explode >= 0.0:
                 rend.explode -= 1.0 * deltaTime
-
-        print(rend.explode)
+                rend.explode_color -= 1.0 * deltaTime
     
         if keys[K_a]:
             rend.angle -= 30 * deltaTime

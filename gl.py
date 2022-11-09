@@ -185,6 +185,7 @@ class Renderer(object):
         self.viewMatrix = self.getViewMatrix()
 
         self.explode = 0.0
+        self.explode_color = 0.0
 
         # Projection Matrix
         self.projectionMatrix = glm.perspective(glm.radians(60),        # FOV
@@ -252,6 +253,8 @@ class Renderer(object):
             glUniform2fv(glGetUniformLocation(self.active_shader, "waveFrequency"), 1, glm.value_ptr(self.waveFrequency))
 
             glUniform1f(glGetUniformLocation(self.active_shader, "explode"), self.explode) 
+
+            glUniform1f(glGetUniformLocation(self.active_shader, "explodeColor"), self.explode_color) 
 
         for obj in self.scene:
             if self.active_shader is not None:

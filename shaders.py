@@ -148,12 +148,12 @@ in vec3 pos;
 uniform vec3 pointLight;
 uniform sampler2D tex;
 
-uniform float explode;
+uniform float explodeColor;
 
 void main()
 {
     float intensity = dot(norms, normalize(pointLight - pos));
     fragColor = texture(tex, UVs) * intensity;
-    fragColor.z *= explode*10; 
+    fragColor.z += explodeColor; 
 }
 '''
