@@ -27,3 +27,6 @@
     - **Tecla c: Para quitarle iluminación al modelo.**
 
 ### Vídeo:
+
+https://user-images.githubusercontent.com/64711979/201004425-3bc09820-73d5-434d-80b6-4a3107d89f9f.mp4
+
