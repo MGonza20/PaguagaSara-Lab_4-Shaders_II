@@ -92,10 +92,10 @@ while isRunning:
 
         if keys[K_w]:
             if rend.camPosition.y < 1.5:
-                rend.camPosition.y += 5 * deltaTime
+                rend.camPosition.y += 5 * deltaTime*2
         elif keys[K_s]:
             if rend.camPosition.y > -1.5:
-                rend.camPosition.y -= 5 * deltaTime
+                rend.camPosition.y -= 5 * deltaTime*2
 
         rend.target.y = rend.camPosition.y 
         xDistance = sin(radians(rend.angle))

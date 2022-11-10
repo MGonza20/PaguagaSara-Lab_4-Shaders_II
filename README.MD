@@ -18,3 +18,12 @@
 ### Shaders:
 - **Tecla 1: Gourad**
 - **Tecla 2: Toon shader**
+- **Tecla 3: Waves shader**
+- **Tecla 4: Explode shader**
+    - **Tecla o: Para inflar el modelo.**
+    - **Tecla p: Para desinflar el modelo.**
+- **Tecla 5: LightPower Shader**
+    - **Tecla f: Para iluminar al modelo.** 
+    - **Tecla c: Para quitarle iluminación al modelo.**
+
+### Vídeo:
