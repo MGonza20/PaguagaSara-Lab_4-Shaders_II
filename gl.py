@@ -174,7 +174,7 @@ class Renderer(object):
         self.angle = 0
         self.camDistance = 5
 
-        self.waveElevation = 0.2
+        self.waveDepth = 0.2
         self.waveFrequency = glm.vec2(4.0, 1.5)
 
         self.value = 0
@@ -250,7 +250,7 @@ class Renderer(object):
 
             glUniform3fv(glGetUniformLocation(self.active_shader, "pointLight"), 1, glm.value_ptr(self.pointLight))
 
-            glUniform1f(glGetUniformLocation(self.active_shader, "waveElevation"), self.waveElevation) 
+            glUniform1f(glGetUniformLocation(self.active_shader, "waveDepth"), self.waveDepth) 
 
             glUniform2fv(glGetUniformLocation(self.active_shader, "waveFrequency"), 1, glm.value_ptr(self.waveFrequency))
 

@@ -89,7 +89,7 @@ uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 projectionMatrix;
 
-uniform float waveElevation;
+uniform float waveDepth;
 uniform vec2 waveFrequency;
 uniform float time;
 
@@ -104,7 +104,7 @@ void main()
     pos = (modelMatrix * vec4(position, 1.0)).xyz;
 
     gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0);
-    gl_Position.y += sin((gl_Position.z * waveFrequency.y)*1.5 + time) * sin((gl_Position.y * waveFrequency.y)/3 + time) * waveElevation; 
+    gl_Position.y += sin((gl_Position.z * waveFrequency.y)*1.5 + time) * sin((gl_Position.y * waveFrequency.y)/3 + time) * waveDepth; 
 }
 '''
 
